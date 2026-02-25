@@ -16,3 +16,10 @@ def print_board(board):
     for row in board:
         print(row)
         
+def find_empty_cell(board):
+    # Find an empty cell in the Sudoku puzzle
+    for r in range(len(board)):
+        for c in range(len(board[0])):
+            if board[r][c] == 0:
+                return (r, c)  # row, column
+    return None
