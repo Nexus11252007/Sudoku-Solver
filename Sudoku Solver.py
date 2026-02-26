@@ -23,3 +23,21 @@ def find_empty_cell(board):
             if board[r][c] == 0:
                 return (r, c)  # row, column
     return None
+
+# Check if a number is valid in a box
+num=5 # Example number to check
+
+row=0 # Example row index for missing cell
+col=2 # Example column index for missing cell
+
+# Calculate the starting indices of the 3x3 box
+box_row = (row // 3)*3
+box_col = (col // 3)*3
+
+#Loop through the 3x3 box from starting indices to check if the number is already present
+for r in range(box_row,box_row+3):
+    for c in range(box_col, box_col+3):
+        
+        if board[r][c] == num:
+            print(f"{num} is already present in the box.")
+            break
