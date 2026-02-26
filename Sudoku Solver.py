@@ -24,12 +24,6 @@ def find_empty_cell(board):
                 return (r, c)  # row, column
     return None
 
-# Check if a number is valid in a box
-num=2 # Example number to check
-
-row=0 # Example row index for missing cell
-col=2 # Example column index for missing cell
-
 def is_valid(board, num, row, col):
     # Check if the number is not in the current row
     if num in board[row]:
@@ -51,7 +45,6 @@ def is_valid(board, num, row, col):
                 return False
     print("True")
     return True
-is_valid(board, num, row, col)
 
 def solve_sudoku(board):
     empty_cell=find_empty_cell(board)
@@ -66,5 +59,11 @@ def solve_sudoku(board):
             if solve_sudoku(board):
                 return True # Continue to solve the rest of the puzzle
             board[row][col] = 0 # Reset the cell (backtrack)
-            
+
     return False # Trigger backtracking
+
+print("Puzzle:")
+print_board(board)
+solve_sudoku(board)
+print("\nSolved Puzzle:")
+print_board(board)
