@@ -27,12 +27,10 @@ def find_empty_cell(board):
 def is_valid(board, num, row, col):
     # Check if the number is not in the current row
     if num in board[row]:
-        print("False")
         return False
     # Check if the number is not in the current column
     for i in range(len(board)):
         if board[i][col] == num:
-            print("False")
             return False
     # Calculate the starting indices of the 3x3 box
     box_row = (row // 3)*3
@@ -41,9 +39,7 @@ def is_valid(board, num, row, col):
     for r in range(box_row, box_row + 3):
         for c in range(box_col, box_col + 3):
             if board[r][c] == num:
-                print("False")
                 return False
-    print("True")
     return True
 
 def solve_sudoku(board):
