@@ -52,3 +52,19 @@ def is_valid(board, num, row, col):
     print("True")
     return True
 is_valid(board, num, row, col)
+
+def solve_sudoku(board):
+    empty_cell=find_empty_cell(board)
+    if not empty_cell:
+        return True  # Puzzle solved
+    
+    row, col = empty_cell # Get row and column of the empty cell
+
+    for num in range(1, 10): # Try numbers 1-9
+        if is_valid(board, num, row, col):
+            board[row][col] = num # Place the number in the cell
+            if solve_sudoku(board):
+                return True # Continue to solve the rest of the puzzle
+            board[row][col] = 0 # Reset the cell (backtrack)
+            
+    return False # Trigger backtracking
